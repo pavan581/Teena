@@ -4,6 +4,7 @@ import wikipedia
 import subprocess
 import webbrowser as web
 import pyautogui as pg
+from googletrans import Translator
 
 def help():
     _help = '''You can ask for
@@ -13,6 +14,18 @@ def help():
 4. whatsapp'''
     return _help
 
+def translator(fromlang,tolang,MyText):
+    translator = Translator()
+    try:
+        if MyText == '':
+            return "Nothing to translate."
+        if fromlang == 'none' or tolang == 'none':
+            return translator.translate(MyText).text
+        else:
+            return translator.translate(MyText, src=fromlang, dest=tolang).text
+    except:
+        return "Unable to translate."
+
 def google(MyText):
     print("Searching...")
     MyText = MyText.replace("search for", "")
@@ -20,7 +33,8 @@ def google(MyText):
     try:
         print(f"showing results for {MyText}...")
         web.open(f'https://www.google.com/search?q={MyText}')
-    except:
+    except Exception as e:
+        print(e)
         print("Unable to show results.")
 
 def wiki(MyText):
@@ -54,5 +68,6 @@ def whatsapp(phonenum,msg):
     file.write(f"{time.asctime( time.localtime(time.time()) )}\nPhone number: {phonenum}\nMessage: {msg}")
     file.write("\n--------------------\n")
     file.close()
+
     
     
