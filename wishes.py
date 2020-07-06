@@ -5,7 +5,7 @@ def wishMe():
     if hour>=0 and hour<12:
         x = "Good Morning!"
 
-    elif hour>=12 and hour<18:
+    elif hour>=12 and hour<17:
         x = "Good Afternoon!"
 
     else:
