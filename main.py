@@ -11,7 +11,7 @@ import features
 if __name__ == "__main__":
     try:
         username = data._read("username")
-        voice._out(wishes.wishMe(username))
+        voice._out(wishes._wishMe(username))
         
     except:
         data.__init__()
@@ -37,26 +37,26 @@ if __name__ == "__main__":
             voice._out(f"{int(datetime.datetime.now().hour)}:{int(datetime.datetime.now().minute)}")
             
         elif 'how are you' in MyText:
-            voice._out(wishes.hru())
+            voice._out(wishes._hru())
 
         elif 'good night' in MyText or 'exit' in MyText:
-            voice._out(wishes.gn())
+            voice._out(wishes._gn())
             exit()
 
         elif 'wikipedia' in MyText:
-            voice._out(features.wiki(MyText))
+            voice._out(features._wiki(MyText))
 
         elif 'music' in MyText:
-            features.spotify(MyText)
+            features._spotify(MyText)
 
         elif 'search for' in MyText or 'in google' in MyText:
-            features.google(MyText)
+            features._google(MyText)
                 
         elif 'translate' in MyText:
             MyText = MyText.replace("translate","")
             fromlang = voice._in("from..")
             tolang = voice._in("to..")
-            voice._out(features.translator(fromlang,tolang,MyText))
+            voice._out(features._translator(fromlang,tolang,MyText))
 
         elif 'whatsapp' in MyText:
             while True:
@@ -70,7 +70,7 @@ if __name__ == "__main__":
                         while True:
                             msg = voice._in("say the message..")
                             if msg != None and msg != 'none':
-                                features.whatsapp(phonenum,msg)
+                                features._whatsapp(phonenum,msg)
                                 break
                     break
             
