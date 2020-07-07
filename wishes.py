@@ -1,6 +1,6 @@
 import datetime
 
-def wishMe(username = ''):
+def _wishMe(username = ''):
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         x = "Good Morning "
@@ -13,9 +13,8 @@ def wishMe(username = ''):
     return f'''{x}{username}!
 I'm Teena. How can I help you...'''
 
-def hru():
+def _hru():
     return "I'm fine. Thanks for asking. How are you"
 
-def gn():
-    print("Good night :)")
-    return "Good night. Sweet dreams."
+def _gn():
+    return "Good night :)\n Sweet dreams."

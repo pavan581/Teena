@@ -6,7 +6,7 @@ import pyautogui as pg
 import webbrowser as web
 from googletrans import Translator
 
-def help():
+def _help():
     _help = '''You can ask for
 1. search for {something}
 2.{something} wikipedia
@@ -15,7 +15,7 @@ def help():
 5. Goodnight or exit to stop program'''
     return _help
 
-def translator(fromlang,tolang,MyText):
+def _translator(fromlang,tolang,MyText):
     translator = Translator()
     try:
         if MyText == '':
@@ -27,7 +27,7 @@ def translator(fromlang,tolang,MyText):
     except:
         return "Unable to translate."
 
-def google(MyText):
+def _google(MyText):
     print("Searching...")
     MyText = MyText.replace("search for", "")
     #MyText = MyText.replace("in google", "")
@@ -38,7 +38,7 @@ def google(MyText):
         print(e)
         print("Unable to show results.")
 
-def wiki(MyText):
+def _wiki(MyText):
     print("Searching...")
     MyText = MyText.replace("wikipedia", "")
     try:
@@ -47,7 +47,7 @@ def wiki(MyText):
     except:
         print("Don't know that.")
 
-def spotify(MyText):
+def _spotify(MyText):
     print("Opening Spotify...")
     if 'play' in MyText:
         subprocess.Popen("%s"%r'C:\Users\91957\AppData\Local\Microsoft\WindowsApps\SpotifyAB.SpotifyMusic_zpdnekdrzrea0\\Spotify.exe')
@@ -60,7 +60,7 @@ def spotify(MyText):
         pg.press('space')
         print("Paused.")
 
-def whatsapp(phonenum,msg):
+def _whatsapp(phonenum,msg):
     web.open('https://web.whatsapp.com/send?phone='+phonenum+'&text='+msg)
     time.sleep(10)
     pg.press('enter')
