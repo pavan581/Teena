@@ -2,8 +2,8 @@ import os
 import time
 import wikipedia
 import subprocess
-import webbrowser as web
 import pyautogui as pg
+import webbrowser as web
 from googletrans import Translator
 
 def help():
@@ -11,7 +11,8 @@ def help():
 1. search for {something}
 2.{something} wikipedia
 3. play music
-4. whatsapp'''
+4. whatsapp
+5. Goodnight or exit to stop program'''
     return _help
 
 def translator(fromlang,tolang,MyText):
